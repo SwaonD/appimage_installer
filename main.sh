@@ -2,10 +2,12 @@
 
 SCRIPT_PATH=$(realpath "$0")
 SCRIPT_DIR=$(dirname "$SCRIPT_PATH")
+SRC_DIR="$SCRIPT_DIR/src"
 
-source $SCRIPT_DIR/src/variables.sh
-source $SCRIPT_DIR/src/tools.sh
-source $SCRIPT_DIR/src/create_folder.sh
+source $SRC_DIR/variables.sh
+source $SRC_DIR/tools.sh
+source $SRC_DIR/create_folder.sh
+source $SRC_DIR/setup_files.sh
 
 main() {
 	local folder
@@ -13,7 +15,7 @@ main() {
 	exec 3>&1
 	folder=$(createFolder "$@")
 	if [ $? -eq 0 ]; then
-		echo "$folder"
+		setupFiles "$folder"
 	fi
 }
 
