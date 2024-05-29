@@ -45,7 +45,7 @@ extractAppImage() {
 	if ! [ -d "$APP_FOLDER" ]; then
 		mkdir -p "$APP_FOLDER"
 	fi
-	print "Extraction of the $(basename "$file") ..."
+	print "Extraction of $(basename "$file") ..."
 	"$file" --appimage-extract > /dev/null
 	isFolderValid
 	exit_code=$?
