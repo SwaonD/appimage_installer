@@ -4,7 +4,7 @@ fileExists() {
 	local dir=$1
 	local name=$2
 
-	if find "$dir" -name "$name" -print -quit | grep -q .; then
+	if find "$dir" -maxdepth 1 -name "$name" -print -quit | grep -q .; then
 		return 0
 	else
 		return 1
@@ -27,8 +27,8 @@ getFile() {
 
 	for file in "$@"; do
 		extension="${file##*.}"
-		if [ -f "$file" ] && [ $extension = $APP_IMAGE_EXT ]; then
-			echo "$file"
+		if [ -f "$file" ] && [ "$extension" = "$APP_IMAGE_EXT" ]; then
+			echo "$(realpath "$file")"
 			return 0
 		fi
 	done
@@ -77,7 +77,7 @@ createFolder() {
 		return $exit_code
 	fi
 	chmod +x "$file"
-	folder_name=$(extractAppImage $file)
+	folder_name=$(extractAppImage "$file")
 	exit_code=$?
 	if [ $exit_code -ne 0 ]; then
 		return $exit_code
@@ -96,6 +96,6 @@ createFolder() {
 		mv "$folder_name" "$APP_FOLDER"
 	fi
 	print "$folder_name folder created at $APP_FOLDER"
-	echo "$APP_FOLDER/$folder_name"
+	echo "$(realpath "$APP_FOLDER/$folder_name")"
 	return 0
 }

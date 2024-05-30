@@ -28,9 +28,9 @@ CODE_ERROR_EXTRACTION=102
 # Msgs
 ERROR_APP_IMAGE_NOT_FOUND="No .$APP_IMAGE_EXT file found in args"
 ERROR_APP_IMAGE_NOT_VALID="The .$APP_IMAGE_EXT does not contain .$ICON_EXT or .$DESKTOP_EXT file"
-ERROR_EXTRACTION="AppImage extraction failed. Pls remove folder"
+ERROR_EXTRACTION="$APP_IMAGE_EXT extraction failed. Pls remove folder"
 
 # ____ MESSAGES ____
 MSG_FOLDER_EXIST="The folder already exist. Override ? ($YES/$NO)"
 MSG_INSTALLATION_FUSE="Fuse is required\n\n    sudo apt install fuse\n"
-FINAL_MESSAGE="Installation success"
+MSG_APP_INSTALLATED="installated with success"
