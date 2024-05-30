@@ -19,16 +19,16 @@ ICON_EXT="png"
 YES="y"
 NO="n"
 
-# ____ Errors ____
+# ____ ERRORS ____
 # Error Code
 CODE_ERROR_ARGS=100
 CODE_ERROR_INIT=101
 
-# Msgs
+# Error Msgs
 ERROR_APP_IMAGE_NOT_FOUND="No .$APP_IMAGE_EXT file found in args"
 ERROR_APP_IMAGE_NOT_VALID="The .$APP_IMAGE_EXT does not contain AppRun, .$ICON_EXT or .$DESKTOP_EXT file"
 
 # ____ MESSAGES ____
 MSG_FOLDER_EXIST="The folder already exist. Replace it ? ($YES/$NO)"
-MSG_APP_INSTALLATED="installated with success.\nIf you can't find your application, try to relog."
+MSG_APP_INSTALLATED() { echo "$1 installated with success.\nIf you can't find your application, try to relog."; }
 MSG_INSTALLATION_FUSE="Your app may need FUSE to work properly. Please consider to install it:\n\n    sudo apt install fuse\n"

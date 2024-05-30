@@ -60,10 +60,27 @@ extractAppImage() {
 	return 0
 }
 
+moveFolder() {
+	local answer
+	local folder_name
+
+	folder_name=$1
+	if [ -d "$APP_DIR/$folder_name" ]; then
+		print "$APP_DIR/$folder_name: $MSG_FOLDER_EXIST"
+		read -r answer
+		if [ "$answer" = "$YES" ]; then
+			rm -r "$APP_DIR/$folder_name"
+		else
+			return 1
+		fi
+	fi
+	mv "$TEMP_DIR/$folder_name" "$APP_DIR"
+	return 0
+}
+
 createFolder() {
 	local file
 	local folder_name
-	local answer
 	local exit_code
 
 	file=$(getFile "$@")
@@ -77,16 +94,10 @@ createFolder() {
 	if [ $exit_code -ne 0 ]; then
 		return $exit_code
 	fi
-	if [ -d "$APP_DIR/$folder_name" ]; then
-		print "$APP_DIR/$folder_name: $MSG_FOLDER_EXIST"
-		read -r answer
-		if [ "$answer" = "y" ]; then
-			rm -r "$APP_DIR/$folder_name"
-		else
-			return 1
-		fi
+	moveFolder "$folder_name"
+	if [ $? -ne 0 ]; then
+		return 1
 	fi
-	mv "$TEMP_DIR/$folder_name" "$APP_DIR"
 	print "$folder_name folder created at $APP_DIR"
 	echo "$(realpath "$APP_DIR/$folder_name")"
 	return 0

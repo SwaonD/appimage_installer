@@ -33,6 +33,6 @@ setupFiles() {
 	updateDesktopFile "$folder" "$desktop_file" "$icon_file"
 	mv "$desktop_file" "$DESKTOP_DIR"
 	print "$(basename "$desktop_file") moved in $DESKTOP_DIR"
-	print "$(basename "$folder") $MSG_APP_INSTALLATED"
+	print $(MSG_APP_INSTALLATED "$(basename "$folder")")
 	suggestFuse
 }
