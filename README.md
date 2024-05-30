@@ -20,9 +20,9 @@ sudo apt install fuse3
 ```sh
 git clone https://github.com/SwaonD/appimage_installer.git
 ```
-2. **Run setup**
+2. **Run installer**
 ```sh
-./appimage_installer/setup.sh
+./appimage_installer/install.sh
 ```
 
 # Usage
