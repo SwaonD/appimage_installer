@@ -52,8 +52,7 @@ extractAppImage() {
 	if [ $exit_code -ne 0 ]; then
 		return $exit_code
 	fi
-	folder_name=$(basename "$file")
-	folder_name=$(echo "$folder_name" | cut -f 1 -d '.')
+	folder_name=$(echo "$(basename "$file")" | cut -f 1 -d '.')
 	mv "$APP_IMAGE_EXTRACTED_DIR" "$TEMP_DIR"
 	mv "$TEMP_DIR/$APP_IMAGE_EXTRACTED_DIR" "$TEMP_DIR/$folder_name"
 	echo "$folder_name"
