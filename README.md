@@ -16,24 +16,11 @@ sudo apt install fuse3
 ```
 
 # Installation
-
-1. **Clone the repository**
 ```sh
 git clone https://github.com/SwaonD/appimage_installer.git
 ```
 
-2. **Navigate to the repository**
-```sh
-cd appimage_installer
-```
-
-3. **Make the script executable**
-```sh
-chmod +x main.sh
-```
-
 # Usage
-
 ```sh
-./main.sh <my_file>.AppImage
+./appimage_installer/main.sh <my_file>.AppImage
 ```
