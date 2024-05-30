@@ -1,4 +1,4 @@
-# Desciprtion
+# Description
 This bash script helps install .AppImage files on your session.
 You should have at the end the desktop icon in your applications.
 
@@ -28,6 +28,7 @@ which fusermount
 
 If nothing returns, consider to install it.<br>
 ```sh
+sudo apt update
 sudo apt install fuse
 ```
 
