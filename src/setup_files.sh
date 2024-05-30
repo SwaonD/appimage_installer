@@ -15,7 +15,7 @@ updateDesktopFile() {
 	sed -i "s|^Icon=.*|Icon=$icon_file|g" "$desktop_file"
 }
 
-handleFuse() {
+suggestFuse() {
 	if ! command -v fusermount &> /dev/null; then
 		print "$MSG_INSTALLATION_FUSE"
 	fi
@@ -31,8 +31,8 @@ setupFiles() {
 		"*.$DESKTOP_EXT" -print -quit)
 	icon_file=$(find "$folder" -maxdepth 1 -name "*.$ICON_EXT" -print -quit)
 	updateDesktopFile "$folder" "$desktop_file" "$icon_file"
-	mv "$desktop_file" "$DESKTOP_FOLDER"
-	print "$(basename "$desktop_file") moved in $DESKTOP_FOLDER"
+	mv "$desktop_file" "$DESKTOP_DIR"
+	print "$(basename "$desktop_file") moved in $DESKTOP_DIR"
 	print "$(basename "$folder") $MSG_APP_INSTALLATED"
-	handleFuse
+	suggestFuse
 }
