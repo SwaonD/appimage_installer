@@ -5,8 +5,8 @@ You should have at the end the desktop icon in your applications.
 # Installation
 `git clone https://github.com/SwaonD/appimage_installer.git`
 
-.AppImage files may need fuse to work properly.<br>
-You can check if you have it with this command:<br>
+.AppImage format may require FUSE to work properly.<br>
+You can check if it is installed with this command:<br>
 `which fusermount`
 
 If nothing returns, consider to install it.<br>
