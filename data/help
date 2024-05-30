@@ -1,3 +1,6 @@
-appimage-install - install .AppImage files
+usage: appimage-install [OPTIONS]... FILE
+Install .AppImage files.
 
-usage: appimage-install [FILE]
+  --help                    display this help and exit
+  --uninstall               uninstall appimage-install
+

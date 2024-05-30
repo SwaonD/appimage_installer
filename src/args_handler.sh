@@ -9,6 +9,10 @@ argsHandler() {
 			cat "$HELP_FILE"
 			return 1
 			;;
+		--uninstall)
+			"$SCRIPT_DIR/uninstall.sh"
+			return 1
+			;;
 		esac
 	done
 	return 0
