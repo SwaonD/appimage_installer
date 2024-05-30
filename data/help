@@ -1,0 +1,3 @@
+appimage-installer - install .AppImage files
+
+usage: appimage-installer <file.AppImage>

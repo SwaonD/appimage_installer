@@ -82,13 +82,11 @@ createFolder() {
 		read -r answer
 		if [ "$answer" = "y" ]; then
 			rm -r "$APP_DIR/$folder_name"
-			mv "$TEMP_DIR/$folder_name" "$APP_DIR"
 		else
 			return 1
 		fi
-	else
-		mv "$TEMP_DIR/$folder_name" "$APP_DIR"
 	fi
+	mv "$TEMP_DIR/$folder_name" "$APP_DIR"
 	print "$folder_name folder created at $APP_DIR"
 	echo "$(realpath "$APP_DIR/$folder_name")"
 	return 0
