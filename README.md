@@ -12,7 +12,7 @@ which fusermount
 If nothing returns, consider to install it.<br>
 ```sh
 sudo apt update
-sudo apt install fuse
+sudo apt install fuse3
 ```
 
 # Installation
