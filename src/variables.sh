@@ -29,6 +29,9 @@ ERROR_APP_IMAGE_NOT_FOUND="No .$APP_IMAGE_EXT file found in args"
 ERROR_APP_IMAGE_NOT_VALID="The .$APP_IMAGE_EXT does not contain AppRun, .$ICON_EXT or .$DESKTOP_EXT file"
 
 # ____ MESSAGES ____
-MSG_FOLDER_EXIST="The folder already exist. Replace it ? ($YES/$NO)"
+MSG_APP_IMAGE_EXTRACTION() { echo "Extraction of $1 ..."; }
+MSG_FOLDER_EXIST() { echo "Folder $1 already exist. Replace it ? ($YES/$NO)"; }
 MSG_APP_INSTALLATED() { echo "$1 installated with success.\nIf you can't find your application, try to relog."; }
+MSG_FOLDER_CREATED() { echo "$1 folder created in $2"; }
+MSG_FILE_MOVED() { echo "$1 moved in $2"; }
 MSG_INSTALLATION_FUSE="Your app may need FUSE to work properly. Please consider to install it:\n\n    sudo apt install fuse\n"

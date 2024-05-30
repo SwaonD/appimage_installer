@@ -6,11 +6,11 @@ SCRIPT_DIR_NAME=$(basename "$SCRIPT_DIR")
 CORE_DIR=~/".local/share"
 BIN_DIR=~/".local/bin"
 
-SYMLNK_FILE_NAME="appimage-installer"
+SYMLNK_FILE_NAME="appimage-install"
 MAIN_FILE_NAME="main.sh"
 
 MSG_FOLDER_EXISTS="folder already exist. Replace it ? (y/n)"
-FINAL_MESSAGE="Installation done.\nSee usage with:\n\n    appimage-installer --help\n"
+FINAL_MESSAGE="Installation done.\nSee usage with:\n\n    $SYMLNK_FILE_NAME --help\n"
 
 main() {
 	local answer

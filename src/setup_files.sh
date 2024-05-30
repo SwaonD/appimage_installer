@@ -32,7 +32,7 @@ setupFiles() {
 	icon_file=$(find "$folder" -maxdepth 1 -name "*.$ICON_EXT" -print -quit)
 	updateDesktopFile "$folder" "$desktop_file" "$icon_file"
 	mv "$desktop_file" "$DESKTOP_DIR"
-	print "$(basename "$desktop_file") moved in $DESKTOP_DIR"
-	print $(MSG_APP_INSTALLATED "$(basename "$folder")")
+	print "$(MSG_FILE_MOVED "$(basename "$desktop_file")" "$DESKTOP_DIR")"
+	print "$(MSG_APP_INSTALLATED "$(basename "$folder")")"
 	suggestFuse
 }

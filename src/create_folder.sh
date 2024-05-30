@@ -45,7 +45,7 @@ extractAppImage() {
 	if ! [ -d "$APP_DIR" ]; then
 		mkdir -p "$APP_DIR"
 	fi
-	print "Extraction of $(basename "$file") ..."
+	print "$(MSG_APP_IMAGE_EXTRACTION "$(basename "$file")")"
 	"$file" --appimage-extract > /dev/null
 	isFolderValid
 	exit_code=$?
@@ -66,7 +66,7 @@ moveFolder() {
 
 	folder_name=$1
 	if [ -d "$APP_DIR/$folder_name" ]; then
-		print "$APP_DIR/$folder_name: $MSG_FOLDER_EXIST"
+		print "$(MSG_FOLDER_EXIST "$APP_DIR/$folder_name")"
 		read -r answer
 		if [ "$answer" = "$YES" ]; then
 			rm -r "$APP_DIR/$folder_name"
@@ -98,7 +98,7 @@ createFolder() {
 	if [ $? -ne 0 ]; then
 		return 1
 	fi
-	print "$folder_name folder created at $APP_DIR"
+	print "$(MSG_FOLDER_CREATED "$folder_name" "$APP_DIR")"
 	echo "$(realpath "$APP_DIR/$folder_name")"
 	return 0
 }

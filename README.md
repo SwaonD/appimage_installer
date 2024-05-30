@@ -27,5 +27,5 @@ git clone https://github.com/SwaonD/appimage_installer.git
 
 # Usage
 ```sh
-appimage-installer <my_file>.AppImage
+appimage-install <my_file>.AppImage
 ```
