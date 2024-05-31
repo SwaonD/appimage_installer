@@ -17,8 +17,8 @@ NO="n"
 MSG_FOLDER_EXISTS="Folder already exist. Replace it ? ($YES/$NO)"
 MSG_FILE_COPIED() { echo "$1 copied into $2"; }
 MSG_SYMBOLIC_LINK_CREATED() { echo "Symbolic link $1 created in $2"; }
-MSG_INSTALLATION_COMPLETE="Installation completed.\nSee usage with:\n\n    $SYMLNK_FILE_NAME --help\n"
-MSG_UNINSTALL_CANCEL="Installation canceled"
+MSG_INSTALL_COMPLETE="Installation completed.\nSee usage with:\n\n    $SYMLNK_FILE_NAME --help\n"
+MSG_INSTALL_CANCEL="Installation canceled"
 
 main() {
 	local answer
@@ -29,7 +29,7 @@ main() {
 		if [ "$answer" = "$YES" ]; then
 			rm -rf "$CORE_DIR/$SCRIPT_DIR_NAME"
 		else
-			echo "$MSG_UNINSTALL_CANCEL"
+			echo "$MSG_INSTALL_CANCEL"
 			return
 		fi
 	fi
@@ -39,7 +39,7 @@ main() {
 	ln -sf "$CORE_DIR/$SCRIPT_DIR_NAME/$MAIN_FILE_NAME" \
 		"$BIN_DIR/$SYMLNK_FILE_NAME"
 	echo "$(MSG_SYMBOLIC_LINK_CREATED "$SYMLNK_FILE_NAME" "$BIN_DIR")"
-	echo -e "$MSG_INSTALLATION_COMPLETE"
+	echo -e "$MSG_INSTALL_COMPLETE"
 }
 
 main

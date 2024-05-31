@@ -1,5 +1,5 @@
 usage: appimage-install [OPTIONS]... FILE
-Install .AppImage files.
+Install .AppImage file.
 
   --help                    display this help and exit
   --uninstall               uninstall appimage-install
