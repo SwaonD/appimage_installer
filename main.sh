@@ -20,17 +20,12 @@ source "$SRC_DIR/setup_files.sh"
 main() {
 	local folder
 
-	argsHandler "$@"
-	if [ $? -ne 0 ]; then
-		return 1
-	fi
+	argsHandler "$@" || return $?
 	exec 3>&1
 	mkdir -p $TEMP_DIR
 	rm -f "$TEMP_DIR/*"
-	folder=$(createFolder "$@")
-	if [ $? -eq 0 ]; then
-		setupFiles "$folder"
-	fi
+	folder=$(createFolder "$@") || return $?
+	setupFiles "$folder"
 	rm -rf "$TEMP_DIR"
 }
 
