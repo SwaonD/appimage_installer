@@ -30,7 +30,7 @@ ERROR_APP_IMAGE_NOT_VALID="The .$APP_IMAGE_EXT does not contain AppRun, .$ICON_E
 
 # ____ MESSAGES ____
 MSG_APP_IMAGE_EXTRACTION() { echo "Extraction of $1 ..."; }
-MSG_FOLDER_EXIST() { echo "Folder $1 already exist. Replace it ? ($YES/$NO)"; }
+MSG_FOLDER_EXIST() { echo "$1\nFolder already exist. Replace it ? ($YES/$NO)"; }
 MSG_APP_INSTALLATED() { echo "$1 installated with success.\nIf you can't find your application, try to relog."; }
 MSG_FOLDER_CREATED() { echo "$1 folder created in $2"; }
 MSG_FILE_MOVED() { echo "$1 moved in $2"; }
