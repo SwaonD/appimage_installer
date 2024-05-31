@@ -8,16 +8,27 @@ BIN_DIR=~/".local/bin"
 
 SYMLNK_FILE_NAME="appimage-install"
 
-FINAL_MESSAGE="Uninstall complete."
+MSG_CONFIRMATION() { echo "Removing\n$1\n$2\nConfirm? (y/n)"; }
+MSG_UNINSTALL_COMPLETE="Uninstall complete."
+MSG_UNINSTALL_CANCEL="Uninstall cancel"
 
 main() {
 	local answer
 
-	if [ -f "$BIN_DIR/$SYMLNK_FILE_NAME" ]; then
-		rm "$BIN_DIR/$SYMLNK_FILE_NAME"
+	echo -e "$(MSG_CONFIRMATION "$BIN_DIR/$SYMLNK_FILE_NAME" \
+		"$CORE_DIR/$SCRIPT_DIR_NAME")"
+	read answer
+	if [ "$answer" = "y" ]; then
+		if [ -f "$BIN_DIR/$SYMLNK_FILE_NAME" ]; then
+			rm "$BIN_DIR/$SYMLNK_FILE_NAME"
+		fi
+		echo "$MSG_UNINSTALL_COMPLETE" # cheat, I know, don't tell anyone
+		if [ -d "$CORE_DIR/$SCRIPT_DIR_NAME" ]; then
+			rm -r "$CORE_DIR/$SCRIPT_DIR_NAME"
+		fi
+	else
+		echo "$MSG_UNINSTALL_CANCEL"
 	fi
-	echo "$FINAL_MESSAGE"
-	rm -rf "$CORE_DIR/$SCRIPT_DIR_NAME"
 }
 
 main

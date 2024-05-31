@@ -25,6 +25,7 @@ main() {
 		fi
 	fi
 	cp -r "$SCRIPT_DIR" "$CORE_DIR"
+	rm -rf "$CORE_DIR/$SCRIPT_DIR_NAME/.git"
 	echo "$SCRIPT_DIR_NAME copied into $CORE_DIR"
 	mkdir -p $BIN_DIR
 	ln -sf "$CORE_DIR/$SCRIPT_DIR_NAME/$MAIN_FILE_NAME" \
