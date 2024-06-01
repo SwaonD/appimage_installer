@@ -90,7 +90,7 @@ createFolder() {
 	file=$(getFile "$@") || return $?
 	chmod +x "$file"
 	folder_name=$(extractAppImage "$file") || return $?
-	moveFolder "$folder_name" || return 1
+	moveFolder "$folder_name" || return $?
 	print "$(MSG_FOLDER_CREATED "$folder_name" "$APP_DIR")"
 	echo "$(realpath "$APP_DIR/$folder_name")"
 	return 0
