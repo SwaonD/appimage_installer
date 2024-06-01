@@ -1,16 +1,5 @@
 #!/bin/bash
 
-fileExists() {
-	local dir=$1
-	local name=$2
-
-	if find "$dir" -maxdepth 1 -name "$name" -print -quit | grep -q .; then
-		return 0
-	else
-		return 1
-	fi
-}
-
 isFolderValid() {
 	if ! fileExists "$APP_IMAGE_EXTRACTED_DIR" "*.$DESKTOP_EXT" ||
 	! fileExists "$APP_IMAGE_EXTRACTED_DIR" "*.$ICON_EXT" ||
