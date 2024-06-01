@@ -44,6 +44,7 @@ removeApp() {
 	if ! [ "$appimage_dir" = "" ]; then
 		removeAppFiles "$app_name" "$appimage_dir"
 		print "$(MSG_APP_UNINSTALLED "$app_name")"
+		print "$MSG_DISCLAIMER_UNINSTALLATION" # temp
 	else
 		print "$(MSG_APP_NOT_FOUND "$app_name")"
 	fi
