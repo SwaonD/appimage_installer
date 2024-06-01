@@ -9,8 +9,8 @@ BIN_DIR=~/".local/bin"
 SYMLNK_FILE_NAME="appimage-install"
 
 MSG_CONFIRMATION() { echo "Removing\n$1\n$2\nConfirm? (y/n)"; }
-MSG_UNINSTALL_COMPLETE="Uninstall completed."
-MSG_UNINSTALL_CANCEL="Uninstall canceled"
+MSG_UNINSTALL_COMPLETE="$SYMLNK_FILE_NAME uninstalled with success."
+MSG_UNINSTALL_CANCEL="Uninstall of $SYMLNK_FILE_NAME canceled"
 
 main() {
 	local answer

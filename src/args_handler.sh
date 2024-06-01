@@ -1,19 +1,35 @@
 #!/bin/bash
 
-argsHandler() {
-	local arg
+listApps() {
+	print "$(ls $APP_DIR)"
+}
 
-	for arg in "$@"; do
-		case "$arg" in
+argsHandler() {
+	local args
+	local i
+
+	args=("$@")
+	i=0
+	while [ "$i" -lt "${#args[@]}" ]; do
+		case "${args[$i]}" in
 		--help)
 			cat "$HELP_FILE"
 			return 1
 			;;
-		--uninstall)
+		--uninstall-command)
 			"$SCRIPT_DIR/uninstall.sh"
 			return 1
 			;;
+		--list)
+			listApps
+			return 1
+			;;
+		--remove)
+			removeApp "${args[((i+1))]}" "${args[$i]}"
+			return 1
+			;;
 		esac
+		((i++))
 	done
 	return 0
 }

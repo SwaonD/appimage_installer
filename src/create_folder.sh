@@ -22,6 +22,16 @@ isFolderValid() {
 	return 0
 }
 
+getAppName() {
+	local desktop_file
+	local folder
+
+	folder="$1"
+	desktop_file=$(find "$folder" -maxdepth 1 -name \
+		"*.$DESKTOP_EXT" -print -quit)
+	echo "$(grep '^Name=' "$desktop_file" | awk -F= '{print $2}' | xargs)"
+}
+
 getFile() {
 	local file
 	local extension
@@ -42,11 +52,11 @@ extractAppImage() {
 	local file
 	local folder_name
 
-	file=$1
+	file="$1"
 	print "$(MSG_APP_IMAGE_EXTRACTION "$(basename "$file")")"
 	"$file" --appimage-extract > /dev/null
 	isFolderValid || return $?
-	folder_name=$(echo "$(basename "$file")" | cut -f 1 -d '.')
+	folder_name="$(getAppName "$APP_IMAGE_EXTRACTED_DIR")"
 	mv "$APP_IMAGE_EXTRACTED_DIR" "$TEMP_DIR"
 	mv "$TEMP_DIR/$APP_IMAGE_EXTRACTED_DIR" "$TEMP_DIR/$folder_name"
 	echo "$folder_name"

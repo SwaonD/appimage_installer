@@ -1,6 +1,8 @@
 usage: appimage-install [OPTIONS]... FILE
 Install .AppImage file.
 
-  --help                    display this help and exit
-  --uninstall               uninstall appimage-install
+  --help                           display this help and exit
+  --list                           list apps
+  --remove                         remove given app
+  --uninstall-command              uninstall appimage-install
 

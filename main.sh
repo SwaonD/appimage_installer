@@ -13,6 +13,7 @@ HELP_FILE="$DATA_DIR/help"
 
 source "$SRC_DIR/variables.sh"
 source "$SRC_DIR/tools.sh"
+source "$SRC_DIR/remove_app.sh"
 source "$SRC_DIR/args_handler.sh"
 source "$SRC_DIR/create_folder.sh"
 source "$SRC_DIR/setup_files.sh"
@@ -20,8 +21,8 @@ source "$SRC_DIR/setup_files.sh"
 main() {
 	local folder
 
-	argsHandler "$@" || return $?
 	exec 3>&1
+	argsHandler "$@" || return $?
 	mkdir -p $TEMP_DIR
 	rm -f "$TEMP_DIR/*"
 	folder=$(createFolder "$@") || return $?

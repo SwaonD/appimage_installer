@@ -12,5 +12,5 @@ handleError() {
 	local msg=$5
 
 	# echo -e "Error $exit_code\nIn file $file\nIn function $function at line $line: ${RED}${msg}${RESET}" >&2
-	echo "${RED}Error: ${msg}${RESET}" >&2
+	echo "Error: ${msg}" >&2
 }
