@@ -72,7 +72,7 @@ moveFolder() {
 		mkdir -p "$APP_DIR"
 	fi
 	if [ -d "$APP_DIR/$folder_name" ]; then
-		print "$(MSG_FOLDER_EXIST "$APP_DIR/$folder_name")"
+		print "$(MSG_CONFIRM_REPLACE_DIR "$APP_DIR/$folder_name")"
 		read -r answer
 		if [ "$answer" = "$YES" ]; then
 			rm -r "$APP_DIR/$folder_name"

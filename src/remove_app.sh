@@ -4,6 +4,8 @@ removeAppFiles() {
 	local desktop_file_name
 	local app_name
 	local appimage_dir
+	local answer
+	local config_file
 
 	app_name=$1
 	appimage_dir=$2
@@ -16,9 +18,14 @@ removeAppFiles() {
 		print "$(MSG_DIR_REMOVE "$desktop_file")"
 		rm "$desktop_file"
 	fi
-	if [ -d "$CONFIG_DIR/$app_name" ]; then
-		print "$(MSG_DIR_REMOVE "$CONFIG_DIR/$app_name")"
-		rm -r "$CONFIG_DIR/$app_name"
+	config_file="$CONFIG_DIR/$app_name"
+	if [ -d "$config_file" ]; then
+		print "$(MSG_CONFIRM_DELETE_DIR "$config_file")"
+		read -r answer
+		if [ "$answer" = "$YES" ]; then
+			print "$(MSG_DIR_REMOVE "$config_file")"
+			rm -r "$config_file"
+		fi
 	fi
 }
 
