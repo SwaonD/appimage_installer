@@ -15,9 +15,8 @@ isFolderValid() {
 	if ! fileExists "$APP_IMAGE_EXTRACTED_DIR" "*.$DESKTOP_EXT" ||
 	! fileExists "$APP_IMAGE_EXTRACTED_DIR" "*.$ICON_EXT" ||
 	! fileExists "$APP_IMAGE_EXTRACTED_DIR" "$APP_IMAGE_EXE_NAME"; then
-		handleError $CODE_ERROR_INIT "${BASH_SOURCE[1]}" "${FUNCNAME[0]}" \
-			$LINENO "$ERROR_APP_IMAGE_NOT_VALID"
-		return $CODE_ERROR_INIT
+		print "$MSG_APP_IMAGE_NOT_VALID"
+		return $INIT_ERROR_CODE
 	fi
 	return 0
 }
@@ -43,9 +42,8 @@ getFile() {
 			return 0
 		fi
 	done
-	handleError $CODE_ERROR_ARGS "${BASH_SOURCE[1]}" "${FUNCNAME[0]}" $LINENO \
-		"$ERROR_APP_IMAGE_NOT_FOUND"
-	return $CODE_ERROR_ARGS
+	print "$MSG_APP_IMAGE_NOT_FOUND"
+	return $ARGS_ERROR_CODE
 }
 
 extractAppImage() {
