@@ -5,4 +5,3 @@ Install .AppImage file.
   --list                           list apps
   --remove                         remove given app
   --uninstall-command              uninstall appimage-install
-
