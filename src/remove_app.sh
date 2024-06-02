@@ -1,10 +1,22 @@
 #!/bin/bash
 
+findConfigDirs() {
+	local app_name
+	local desktop_file_name
+	local alternative_name
+
+	app_name=$1
+	desktop_file_name=$2
+	alternative_name="$(basename "$desktop_file_name" ".$DESKTOP_EXT")"
+	findConfigDirsResult=("$CONFIG_DIR/$app_name" "$CONFIG_DIR/$alternative_name")
+}
+
 removeAppFiles() {
 	local desktop_file_name
 	local app_name
 	local appimage_dir
 	local answer
+	local config_dirs
 	local config_file
 
 	app_name=$1
@@ -18,15 +30,17 @@ removeAppFiles() {
 		print "$(MSG_DIR_REMOVE "$desktop_file")"
 		rm "$desktop_file"
 	fi
-	config_file="$CONFIG_DIR/$app_name"
-	if [ -d "$config_file" ]; then
-		print "$(MSG_CONFIRM_DELETE_DIR "$config_file")"
-		read -r answer
-		if [ "$answer" = "$YES" ]; then
-			print "$(MSG_DIR_REMOVE "$config_file")"
-			rm -r "$config_file"
+	findConfigDirs "$app_name" "$desktop_file_name"
+	for config_dir in "${findConfigDirsResult[@]}"; do
+		if [ -d "$config_dir" ]; then
+			print "$(MSG_CONFIRM_DELETE_DIR "$config_dir")"
+			read -r answer
+			if [ "$answer" = "$YES" ]; then
+				print "$(MSG_DIR_REMOVE "$config_dir")"
+				rm -r "$config_dir"
+			fi
 		fi
-	fi
+	done
 }
 
 removeApp() {

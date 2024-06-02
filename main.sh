@@ -20,6 +20,7 @@ source "$SRC_DIR/setup_files.sh"
 
 main() {
 	local folder
+	local old_ifs
 
 	exec 3>&1
 	argsHandler "$@" || return $?

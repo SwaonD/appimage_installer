@@ -39,7 +39,7 @@ MSG_APP_UNINSTALLED() { echo "$1 uninstalled with success."; }
 MSG_APP_INSTALLATION_CANCELED="Installation canceled."
 MSG_INSTALLATION_FUSE="Your app may need FUSE to work properly. Please consider to install it:\n\n    sudo apt install fuse\n"
 
-MSG_DISCLAIMER_UNINSTALLATION="Warning, uninstall feature is not finished. It is possible that certain files created by the app are still on your computer."
+MSG_DISCLAIMER_UNINSTALLATION="Warning, current remove feature may not track every files created by the app."
 # temp
 
 # confirmations
