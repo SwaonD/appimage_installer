@@ -15,6 +15,17 @@ sudo apt update
 sudo apt install fuse3
 ```
 
+# Quick Start
+1. **Clone the repository**
+```sh
+git clone https://github.com/SwaonD/appimage_installer.git
+```
+2. **Run installer**
+```sh
+./appimage_installer/main.sh <my_file>.AppImage
+```
+
+
 # Installation
 1. **Clone the repository**
 ```sh
@@ -23,6 +34,14 @@ git clone https://github.com/SwaonD/appimage_installer.git
 2. **Run installer**
 ```sh
 ./appimage_installer/install.sh
+```
+3. **Add the binary directory to the PATH**
+```sh
+echo "PATH=$PATH:~/.local/bin" >> ~/.profile
+```
+4. **Reset profile**
+```sh
+source ~/.profile
 ```
 
 # Usage
