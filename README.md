@@ -43,3 +43,6 @@ source ~/.profile
 ```sh
 appimage-install <my_file>.AppImage
 ```
+
+# Details
+Every variables are in the src/variables.sh file, including the directory path used to store the apps (APP_DIR).
