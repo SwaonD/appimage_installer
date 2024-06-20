@@ -20,13 +20,13 @@ sudo apt install fuse3
 ```sh
 git clone https://github.com/SwaonD/appimage_installer.git
 ```
-2. **Run installer**
+2. **Install the .AppImage**
 ```sh
 ./appimage_installer/main.sh <my_file>.AppImage
 ```
 
 # Installation
-1. **Run installer**
+1. **Run the installer**
 ```sh
 ./appimage_installer/install.sh
 ```
@@ -45,4 +45,4 @@ appimage-install <my_file>.AppImage
 ```
 
 # Details
-Every variables are in the src/variables.sh file, including the directory path used to store the apps (APP_DIR).
+Every variables are in the src/variables.sh file, including the directory path used to store the applications (APP_DIR).
